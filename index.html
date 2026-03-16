@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KGV Am Galgenberg Weimar e.V.</title>
+  <meta name="description" content="Moderner Webauftritt für den Kleingartenverein Am Galgenberg Weimar e.V. mit Informationen zur Anlage, Mitgliedschaft, Dokumenten und Kontakt." />
+  <style>
+    :root {
+      --bg: #f7f7f2;
+      --card: rgba(255,255,255,0.82);
+      --text: #183126;
+      --muted: #5b6d62;
+      --line: rgba(24,49,38,0.1);
+      --brand: #2f7d4b;
+      --brand-2: #89b96d;
+      --shadow: 0 20px 60px rgba(24,49,38,0.12);
+      --radius: 24px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(137,185,109,0.25), transparent 32%),
+        radial-gradient(circle at top right, rgba(232,176,76,0.18), transparent 28%),
+        linear-gradient(180deg, #fbfcf7 0%, var(--bg) 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    .section { padding: 88px 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px;
+      background: rgba(47,125,75,0.1); color: var(--brand); font-size: 0.92rem; font-weight: 700;
+    }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.4rem); line-height: 0.98; letter-spacing: -0.04em; max-width: 11ch; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.03; letter-spacing: -0.03em; max-width: 14ch; }
+    h3 { font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.02em; }
+    p { color: var(--muted); line-height: 1.75; font-size: 1.03rem; }
+    .site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(16px); background: rgba(251,252,247,0.78); border-bottom: 1px solid rgba(24,49,38,0.06); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-mark { width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display: grid; place-items: center; color: white; box-shadow: var(--shadow); }
+    .brand-text small { display: block; font-size: 0.78rem; color: var(--muted); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { color: var(--muted); font-weight: 600; font-size: 0.98rem; }
+    .button, button { border: 0; border-radius: 999px; padding: 15px 22px; font: inherit; cursor: pointer; }
+    .button-primary { background: linear-gradient(135deg, var(--brand), #245d38); color: #fff; box-shadow: 0 16px 34px rgba(47,125,75,0.24); font-weight: 700; }
+    .button-secondary { background: rgba(255,255,255,0.78); color: var(--text); border: 1px solid rgba(24,49,38,0.08); font-weight: 700; }
+    .hero { padding: 74px 0 38px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 34px; }
+    .card { border: 1px solid rgba(24,49,38,0.07); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(14px); border-radius: var(--radius); }
+    .hero-copy { padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px; min-height: 560px; justify-content: space-between; }
+    .hero-copy p.lead { font-size: 1.12rem; max-width: 56ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
+    .hero-micro { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .stat { padding: 18px; min-height: 120px; }
+    .stat strong { display: block; font-size: 2rem; margin-bottom: 6px; }
+    .hero-visual { padding: 18px; min-height: 560px; position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(47,125,75,0.92), rgba(24,49,38,0.96)); color: #fff; }
+    .hero-art { border-radius: 22px; min-height: 100%; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(180deg, #8fca70 0%, #5ea14a 28%, #387a34 60%, #214f28 100%); position: relative; overflow: hidden; }
+    .hero-art svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+    .floating-note { position: absolute; left: 18px; right: 18px; bottom: 18px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.16); border-radius: 20px; padding: 16px 18px; backdrop-filter: blur(14px); }
+    .floating-note strong { display: block; margin-bottom: 6px; }
+    .floating-note span { color: rgba(255,255,255,0.92); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+    .section-head p { max-width: 56ch; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .feature,.doc-card,.timeline-card,.glass-card,.contact-card,.footer-card { padding: 24px; }
+    .feature-icon,.doc-icon { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 18px; background: linear-gradient(135deg, rgba(47,125,75,0.14), rgba(137,185,109,0.18)); color: var(--brand); }
+    .timeline { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 20px; }
+    .timeline-item { display: grid; grid-template-columns: 68px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .year { color: var(--brand); font-weight: 800; }
+    .membership { background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0)); border-top: 1px solid rgba(24,49,38,0.05); border-bottom: 1px solid rgba(24,49,38,0.05); }
+    .cta-panel { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: 28px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(47,125,75,0.08), rgba(232,176,76,0.12)); border: 1px solid rgba(24,49,38,0.08); }
+    .docs-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .contact-layout { display: grid; grid-template-columns: 0.86fr 1.14fr; gap: 20px; }
+    .contact-list { display: grid; gap: 12px; margin-top: 18px; }
+    .contact-row { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .contact-form { display: grid; gap: 14px; }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: grid; gap: 8px; font-weight: 700; font-size: 0.95rem; }
+    input, textarea { border: 1px solid rgba(24,49,38,0.09); background: rgba(255,255,255,0.85); border-radius: 18px; padding: 14px 16px; font: inherit; color: var(--text); }
+    textarea { min-height: 150px; resize: vertical; }
+    .footer { padding: 24px 0 54px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 20px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .footer-links a { padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid rgba(24,49,38,0.08); color: var(--muted); font-weight: 600; }
+    .fineprint { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 18px; color: var(--muted); font-size: 0.92rem; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1080px) { .hero-grid,.timeline,.contact-layout,.footer-grid,.grid-3,.grid-2,.docs-grid { grid-template-columns: 1fr; } .hero-copy,.hero-visual { min-height: auto; } }
+    @media (max-width: 760px) { .nav { flex-direction: column; align-items: flex-start; padding: 14px 0; } .nav-links { justify-content: flex-start; } .hero-micro,.field-grid,.cta-panel { grid-template-columns: 1fr; } .section-head { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#start">
+        <div class="brand-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3C9.2 6.1 6.7 9.4 6.7 13.1C6.7 16.7 9.1 19.5 12 19.5C14.9 19.5 17.3 16.7 17.3 13.1C17.3 9.4 14.8 6.1 12 3Z" fill="currentColor" opacity=".94"/><path d="M12 19.4V8.2" stroke="white" stroke-width="1.7" stroke-linecap="round"/><path d="M12 12.2C10.7 11 9.3 10.4 8.1 10.3" stroke="white" stroke-width="1.7" stroke-linecap="round"/><path d="M12 14.4C13.4 13.1 14.8 12.5 16 12.3" stroke="white" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </div>
+        <div class="brand-text"><small>Kleingartenverein</small><span>Am Galgenberg Weimar e.V.</span></div>
+      </a>
+      <nav class="nav-links">
+        <a href="#verein">Verein</a><a href="#anlage">Anlage</a><a href="#mitgliedschaft">Mitglied werden</a><a href="#dokumente">Dokumente</a><a href="#kontakt">Kontakt</a><a class="button button-primary" href="#kontakt">Anfrage senden</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div class="card hero-copy reveal">
+          <div>
+            <span class="eyebrow">Grün. Gemeinschaftlich. Nah in Weimar.</span>
+            <div style="height:18px"></div>
+            <h1>Ein moderner Auftritt für einen traditionsreichen Gartenverein.</h1>
+            <div style="height:18px"></div>
+            <p class="lead">Willkommen beim KGV Am Galgenberg Weimar e.V. Unsere Anlage verbindet Erholung, Gemeinschaft und gepflegte Gartenkultur – zwischen Erfurter Straße und Georg-Haar-Straße.</p>
+            <div class="hero-actions"><a class="button button-primary" href="#mitgliedschaft">Freie Gärten anfragen</a><a class="button button-secondary" href="#verein">Mehr über den Verein</a></div>
+          </div>
+          <div class="hero-micro">
+            <div class="card stat"><strong>1929</strong><span>Seit der Gründung aktiv für Pflege, Gestaltung und Erhalt der Anlage.</span></div>
+            <div class="card stat"><strong>88</strong><span>Parzellen, in denen Mitglieder Gartenzeit mit Familie und Freunden genießen.</span></div>
+            <div class="card stat"><strong>Weimar</strong><span>Zentral gelegene Anlage mit kurzen Wegen und persönlichem Kontakt.</span></div>
+          </div>
+        </div>
+        <div class="card hero-visual reveal">
+          <div class="hero-art">
+            <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid slice">
+              <circle cx="490" cy="115" r="54" fill="rgba(255,248,210,.82)"/>
+              <path d="M0 500C110 430 190 415 275 448C374 486 445 471 600 390V760H0V500Z" fill="#6fb357"/>
+              <path d="M0 565C116 505 215 495 293 522C386 556 466 545 600 472V760H0V565Z" fill="#4e9441" opacity=".95"/>
+              <path d="M0 645C115 614 208 615 292 645C386 678 461 676 600 630V760H0V645Z" fill="#2d6b33" opacity=".92"/>
+              <g transform="translate(200 350)"><rect x="38" y="110" width="135" height="116" rx="10" fill="#f5d07b"/><path d="M20 120L105 48L193 120" fill="#5a301a"/><rect x="91" y="156" width="28" height="70" rx="4" fill="#865530"/><rect x="58" y="142" width="22" height="22" rx="4" fill="#fff" opacity=".92"/><rect x="130" y="142" width="22" height="22" rx="4" fill="#fff" opacity=".92"/></g>
+              <g fill="#295d25"><circle cx="135" cy="455" r="38"/><circle cx="172" cy="432" r="28"/><circle cx="446" cy="420" r="42"/><circle cx="488" cy="448" r="32"/></g>
+              <path d="M174 760C194 680 234 618 302 560C358 513 404 478 439 449" stroke="#d9c58b" stroke-width="34" stroke-linecap="round" fill="none" opacity=".94"/>
+            </svg>
+          </div>
+          <div class="floating-note"><strong>Ruhig, gepflegt und offen für neue Mitglieder</strong><span>Ideal für Interessierte, Besucherinnen und Besucher sowie Pächter, die Informationen schnell und übersichtlich finden möchten.</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="verein">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="eyebrow">Der Verein</span><div style="height:14px"></div><h2>Tradition, Verantwortung und Freude am Gärtnern.</h2></div><p>Der Verein steht für gegenseitige Unterstützung, gepflegte Parzellen und eine Anlage, in der sich Jung und Alt wohlfühlen. Der neue Auftritt zeigt diese Werte klarer, freundlicher und zeitgemäß.</p></div>
+        <div class="grid-3">
+          <article class="card feature reveal"><div class="feature-icon">✓</div><h3>Verlässlich organisiert</h3><p>Wichtige Informationen, Dokumente und Ansprechpartner sind strukturiert an einem Ort gebündelt.</p></article>
+          <article class="card feature reveal"><div class="feature-icon">☺</div><h3>Einladend für Interessierte</h3><p>Freie Gärten, Mitgliedschaft und erste Kontaktmöglichkeiten sind sofort sichtbar und leicht verständlich.</p></article>
+          <article class="card feature reveal"><div class="feature-icon">🌿</div><h3>Passend zur Gartenkultur</h3><p>Natürliche Farben, viel Luft im Layout und eine freundliche Bildsprache transportieren Ruhe und Gemeinschaft.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="anlage">
+      <div class="container timeline">
+        <div class="card timeline-card reveal"><span class="eyebrow">Unsere Anlage</span><div style="height:14px"></div><h2>Ein Ort zum Durchatmen mitten in Weimar.</h2><div style="height:16px"></div><p>Zwischen Erfurter Straße und Georg-Haar-Straße liegt eine Anlage, die über Jahrzehnte mit viel Einsatz gestaltet wurde. Aus einem Stück Boden ist ein lebendiger Ort für Erholung, Austausch und Gartenleidenschaft entstanden.</p><div style="height:22px"></div><div class="timeline-item"><div class="year">1929</div><div><h3>Gründung des Vereins</h3><p>Seitdem prägt gemeinsames Engagement das Bild der Anlage.</p></div></div><div class="timeline-item"><div class="year">Heute</div><div><h3>88 Parzellen</h3><p>Mitglieder nutzen die Gärten für Erholung, Begegnung und aktive Pflege der Gemeinschaft.</p></div></div><div class="timeline-item" style="border-bottom:0"><div class="year">Zukunft</div><div><h3>Neues Gesicht im Web</h3><p>Moderner, klarer und besser nutzbar auf dem Smartphone und am PC.</p></div></div></div>
+        <div class="card glass-card reveal"><span class="eyebrow">Warum die neue Seite besser wirkt</span><div style="height:16px"></div><div class="grid-2"><article><h3>Klare Navigation</h3><p>Weniger Klicks, direkter Zugang zu Kontakt, Dokumenten und Vereinsinformationen.</p></article><article><h3>Mobil optimiert</h3><p>Der Auftritt funktioniert sauber auf Handy, Tablet und Desktop.</p></article><article><h3>Mehr Vertrauen</h3><p>Ein modernes Design wirkt gepflegt, aktuell und sympathisch.</p></article><article><h3>Einfach erweiterbar</h3><p>Dokumente, Termine oder Bildergalerien lassen sich später sauber ergänzen.</p></article></div><div style="height:22px"></div><div class="cta-panel"><div><h3>Optionaler nächster Ausbau</h3><p>Später können noch Fotogalerie, News, Downloadbereich und ein echter Formularversand ergänzt werden.</p></div><a class="button button-secondary" href="#dokumente">Bereich ansehen</a></div></div>
+      </div>
+    </section>
+    <section class="section membership" id="mitgliedschaft">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="eyebrow">Mitgliedschaft</span><div style="height:14px"></div><h2>Freude am Garten? Dann lernen Sie uns kennen.</h2></div><p>Freie Gärten sind oft nur kurz verfügbar. Ein moderner Bereich für Interessierte sorgt dafür, dass Anfragen schnell beim Verein ankommen und neue Mitglieder sich gut abgeholt fühlen.</p></div>
+        <div class="grid-3">
+          <article class="card feature reveal"><div class="feature-icon">1</div><h3>Für neue Pächter</h3><p>Informationen zu freien Parzellen, ersten Schritten und Kontakt zum Vorstand.</p></article>
+          <article class="card feature reveal"><div class="feature-icon">2</div><h3>Für passive Mitglieder</h3><p>Auch ohne eigenen Garten ist eine Unterstützung des Vereins möglich und willkommen.</p></article>
+          <article class="card feature reveal"><div class="feature-icon">3</div><h3>Schnell erreichbar</h3><p>Kurze Wege, klare Ansprechpartner und eine unkomplizierte Anfrage über die Website.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="dokumente">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="eyebrow">Dokumente & Service</span><div style="height:14px"></div><h2>Alles Wichtige übersichtlich an einem Ort.</h2></div><p>Diese Karten können direkt mit echten PDF-Dateien auf IONOS verlinkt werden – für Pächter, Mitglieder und Interessierte.</p></div>
+        <div class="docs-grid">
+          <article class="card doc-card reveal"><div class="doc-icon">PDF</div><h3>Für Pächter</h3><p>Regeln, Formulare und wichtige Hinweise für den Alltag im Garten.</p></article>
+          <article class="card doc-card reveal"><div class="doc-icon">★</div><h3>Urkunden</h3><p>Auszeichnungen, Historie und besondere Meilensteine des Vereins.</p></article>
+          <article class="card doc-card reveal"><div class="doc-icon">PR</div><h3>Protokolle</h3><p>Interner Bereich für Vereinsmitglieder mit aktuellen Informationen und Beschlüssen.</p></article>
+          <article class="card doc-card reveal"><div class="doc-icon">🗓</div><h3>Termine</h3><p>Versammlungen, Arbeitseinsätze und Vereinstermine sauber und mobil lesbar dargestellt.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="kontakt">
+      <div class="container contact-layout">
+        <aside class="card contact-card reveal"><span class="eyebrow">Kontakt</span><div style="height:14px"></div><h2>Sprechen Sie uns einfach an.</h2><div style="height:14px"></div><p>Für allgemeine Fragen, Interesse an einem Garten oder Hinweise zur Anlage. Die Kontaktdaten können direkt übernommen und bei Bedarf erweitert werden.</p><div class="contact-list"><div class="contact-row"><div><strong>Standort</strong><p>Zwischen Erfurter Straße &amp; Georg-Haar-Straße in Weimar</p></div></div><div class="contact-row"><div><strong>E-Mail</strong><p><a href="mailto:kgv-amgalgenberg@gmx.de">kgv-amgalgenberg@gmx.de</a></p></div></div><div class="contact-row" style="border-bottom:0"><div><strong>Hinweis</strong><p>Das Formular ist als Design-Vorlage eingebaut und kann auf IONOS mit echtem Versand verbunden werden.</p></div></div></div></aside>
+        <section class="card contact-card reveal"><h3>Kontaktformular</h3><p style="margin-bottom:18px;">Eine freundliche und zeitgemäße Kontaktstrecke für neue Anfragen.</p><form class="contact-form" id="contactForm"><div class="field-grid"><label>Name<input type="text" name="name" placeholder="Ihr Name" required /></label><label>E-Mail<input type="email" name="email" placeholder="name@beispiel.de" required /></label></div><div class="field-grid"><label>Telefon<input type="text" name="phone" placeholder="Optional" /></label><label>Anliegen<input type="text" name="topic" placeholder="z. B. freier Garten" /></label></div><label>Nachricht<textarea name="message" placeholder="Worum geht es?" required></textarea></label><div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;"><button class="button button-primary" type="submit">Nachricht vorbereiten</button><span id="formStatus">Beim Klick wird eine E-Mail im Standard-Mailprogramm vorbereitet.</span></div></form></section>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <section class="card footer-card reveal"><span class="eyebrow">Modernisierungsvorschlag</span><div style="height:14px"></div><h3>Bereit für IONOS</h3><p>Diese Version ist als moderne, leichtgewichtige HTML-Seite aufgebaut. Sie kann direkt auf dem Webspace abgelegt und später um echte PDFs, Bilder, ein Impressum, Datenschutz und zusätzliche Unterseiten erweitert werden.</p><div class="footer-links"><a href="#start">Start</a><a href="#verein">Verein</a><a href="#dokumente">Dokumente</a><a href="#kontakt">Kontakt</a></div></section>
+      <section class="card footer-card reveal"><h3>Rechtliches</h3><p><strong>Impressum</strong><br /><a href="impressum.html">Platzhalter – bitte echte Vereinsdaten ergänzen.</a></p><p><strong>Datenschutz</strong><br /><a href="datenschutz.html">Platzhalter – bitte mit tatsächlicher Datenschutzerklärung ersetzen.</a></p></section>
+    </div>
+    <div class="container fineprint"><span>© <span id="year"></span> KGV Am Galgenberg Weimar e.V.</span><span>Konzept &amp; Design: moderner Onepager für Desktop und Mobilgeräte</span></div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.14 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent((data.get('topic') || 'Anfrage über Website').toString());
+      const body = encodeURIComponent('Name: ' + (data.get('name') || '') + '\n' + 'E-Mail: ' + (data.get('email') || '') + '\n' + 'Telefon: ' + (data.get('phone') || '') + '\n\n' + (data.get('message') || ''));
+      window.location.href = 'mailto:kgv-amgalgenberg@gmx.de?subject=' + subject + '&body=' + body;
+      status.textContent = 'Die Nachricht wurde an Ihr Mailprogramm übergeben.';
+    });
+  </script>
+</body>
+</html>
