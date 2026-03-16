@@ -1,17 +1,16 @@
-KGV Am Galgenberg Weimar – Website Paket
+KGV Am Galgenberg Weimar – Website Paket v2
 
-Inhalt:
+Enthalten:
 - index.html
 - impressum.html
 - datenschutz.html
 - assets/
 
-GitHub Pages:
-1. ZIP entpacken
-2. Dateien in ein neues öffentliches GitHub-Repository hochladen
-3. Settings > Pages > Deploy from a branch > main / root
-4. Danach in Pages die Custom Domain setzen
-
-Wichtig:
-- Impressum und Datenschutz sind Platzhalter und müssen vor Livegang ersetzt werden.
-- Kontaktformular öffnet aktuell nur das Standard-Mailprogramm.
+Hinweise:
+- Inhalte wurden aktualisiert.
+- Im Datenschutztext stehen andere Kontaktdaten als im Impressum:
+  Impressum: 99423 Weimar / kgv-amgalgenberg@gmx.de
+  Datenschutz: 99427 Weimar / vorstand@kgv-am-galgenberg-weimar.de
+  Bitte vor dem Livegang vereinheitlichen.
+- In der Rubrik "Termine" ist ein Platzhalter für ein Bild oder einen Aushang eingebaut.
+- Die Dokumenten-Buttons sind Platzhalter-Links und können später auf PDFs zeigen.
