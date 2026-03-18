@@ -340,14 +340,7 @@
     }
 
     .feature-icon, .doc-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg,rgba(47,125,75,.14),rgba(137,185,109,.18));
-      color: var(--brand);
+      display: none;
     }
 
     .cta-panel {
@@ -466,6 +459,15 @@
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 18px;
+    }
+
+    .map-box {
+      margin-top: 22px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(24,49,38,.08);
+      box-shadow: 0 14px 40px rgba(24,49,38,.12);
+      background: #fff;
     }
 
     @media (max-width: 1080px) {
@@ -686,14 +688,12 @@
 
         <div class="docs-grid">
           <article class="card doc-card reveal">
-            <div class="doc-icon">PDF</div>
             <h3>Satzung</h3>
             <p>Die aktuelle Satzung des Kleingartenvereins „Am Galgenberg“ e. V.</p>
             <a class="pill-link" href="Satzung.pdf" target="_blank" rel="noopener">PDF öffnen</a>
           </article>
 
           <article class="card doc-card reveal">
-            <div class="doc-icon">GO</div>
             <h3>Gartenordnungen</h3>
             <p>Gartenordnung des Vereins, Rahmenkleingartenordnung sowie Hinweise zu Verstößen und Gebühren.</p>
             <a class="pill-link" href="Gartenordnung.pdf" target="_blank" rel="noopener">Gartenordnung</a>
@@ -704,7 +704,6 @@
           </article>
 
           <article class="card doc-card reveal">
-            <div class="doc-icon">FO</div>
             <h3>Formulare</h3>
             <p>Wichtige Formulare für Aufnahme, Übernahme und Bauangelegenheiten in der Gartenanlage.</p>
             <a class="pill-link" href="Mitgliedsantrag.pdf" target="_blank" rel="noopener">Mitgliedsantrag</a>
@@ -717,7 +716,6 @@
           </article>
 
           <article class="card doc-card reveal">
-            <div class="doc-icon">DS</div>
             <h3>Datenschutz</h3>
             <p>Datenschutzerklärung des Kleingartenvereins „Am Galgenberg“ e. V.</p>
             <a class="pill-link" href="Datenschutzerklärung.pdf" target="_blank" rel="noopener">PDF öffnen</a>
@@ -821,6 +819,31 @@
               <span id="formStatus">Beim Klick wird eine E-Mail vorbereitet.</span>
             </div>
           </form>
+
+          <div style="margin-top:22px;">
+            <h3 style="margin-bottom:12px;">Standort der Gartenanlage</h3>
+            <p style="margin-bottom:14px;">Hier finden Sie unsere Gartenanlage direkt auf Google Maps.</p>
+
+            <a class="button button-secondary"
+               href="https://www.google.com/maps?q=50.98291267171604,11.298799000296405"
+               target="_blank"
+               rel="noopener"
+               style="margin-bottom:16px;">
+              In Google Maps öffnen
+            </a>
+
+            <div class="map-box">
+              <iframe
+                src="https://www.google.com/maps?q=50.98291267171604,11.298799000296405&z=17&output=embed"
+                width="100%"
+                height="320"
+                style="border:0; display:block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
         </section>
       </div>
     </section>
