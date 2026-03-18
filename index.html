@@ -137,6 +137,9 @@
       padding: 11px 18px;
       font: inherit;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .button-primary {
       background: #2f7d4b;
@@ -458,6 +461,13 @@
       font-weight: 700;
     }
 
+    .termine-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
     @media (max-width: 1080px) {
       .hero-grid,
       .timeline,
@@ -543,7 +553,7 @@
               </span>
               <span class="hero-termine-text">
                 <strong>Aktueller Termin 2026</strong>
-                <span>Wasser anstellen am Samstag, 11.04.2026 ab 09:00 Uhr – hier klicken für die große Ansicht.</span>
+                <span>Wasser anstellen am Samstag, 11.04.2026 ab 09:00 Uhr – hier klicken für die große Ansicht oder den Kalendereintrag.</span>
               </span>
             </a>
           </div>
@@ -724,8 +734,11 @@
           <h2>Alle wichtigen Termine schnell im Blick.</h2>
           <div style="height:16px"></div>
           <p>Hier finden Vereinsmitglieder aktuelle Hinweise, Terminbilder oder Aushänge. Der Bereich kann bei Bedarf jederzeit aktualisiert werden.</p>
-          <div style="height:18px"></div>
-          <a class="button button-primary" href="1-Termin.jpg" target="_blank" rel="noopener">Terminbild groß öffnen</a>
+
+          <div class="termine-buttons">
+            <a class="button button-primary" href="termin-wasser-anstellen-2026.ics" download>In Kalender eintragen</a>
+            <a class="button button-secondary" href="1-Termin.jpg" target="_blank" rel="noopener">Terminbild groß öffnen</a>
+          </div>
         </section>
 
         <section class="card termine-card reveal">

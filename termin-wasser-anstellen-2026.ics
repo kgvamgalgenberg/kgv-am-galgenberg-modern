@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:wasser-anstellen-2026@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260318T080000Z
+DTSTART:20260411T070000Z
+DTEND:20260411T100000Z
+SUMMARY:Wasser anstellen
+DESCRIPTION:Wasser anstellen in der Kleingartenanlage Am Galgenberg Weimar.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR
