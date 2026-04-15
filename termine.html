@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termine Vereinsmitglieder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: #ffffff;
+      color: #183126;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid rgba(24,49,38,.08);
+      border-radius: 24px;
+      padding: 24px;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(24,49,38,.08);
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #5b6d62;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 800;
+      font-size: .95rem;
+      text-decoration: none;
+    }
+
+    .button-primary {
+      background: #2f7d4b;
+      color: #fff;
+      border: 1px solid #276a40;
+      box-shadow: 0 10px 24px rgba(47,125,75,.20);
+    }
+
+    .button-secondary {
+      background: #fff;
+      color: #183126;
+      border: 1px solid rgba(24,49,38,.12);
+    }
+
+    .image-wrap {
+      padding: 10px;
+      border: 1px solid rgba(24,49,38,.08);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(24,49,38,.08);
+    }
+
+    .image-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid">
+      <section class="card">
+        <h2>Wasser anstellen 2026</h2>
+        <p>
+          Hier finden Vereinsmitglieder aktuelle Hinweise und Aushänge zu wichtigen Terminen.
+          Der Inhalt dieser Seite kann jederzeit separat aktualisiert werden.
+        </p>
+
+        <div class="buttons">
+          <a class="button button-primary" href="termin-wasser-anstellen-2026.ics" download>In Kalender eintragen</a>
+          <a class="button button-secondary" href="1-Termin.jpg" target="_blank" rel="noopener">Terminbild groß öffnen</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="image-wrap">
+          <a href="1-Termin.jpg" target="_blank" rel="noopener">
+            <img src="1-Termin.jpg" alt="Termine 2026 – Wasser anstellen">
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
