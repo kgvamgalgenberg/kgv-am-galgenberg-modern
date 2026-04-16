@@ -244,92 +244,6 @@
       line-height: 1.7;
     }
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.52);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 9999;
-    }
-
-    .overlay.open {
-      display: flex;
-    }
-
-    .overlay-box {
-      width: min(860px, 100%);
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 30px 80px rgba(0,0,0,.25);
-      overflow: hidden;
-    }
-
-    .overlay-head {
-      display: flex;
-      justify-content: flex-end;
-      padding: 14px 14px 0 14px;
-      background: #fff;
-    }
-
-    .close-btn {
-      background: #fff;
-      color: #183126;
-      border: 1px solid rgba(24,49,38,.12);
-    }
-
-    .popup-card {
-      border-radius: 22px;
-      padding: 42px 30px 46px 30px;
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 14px;
-    }
-
-    .popup-card.green {
-      background: linear-gradient(135deg, #eef8ee, #dff0de);
-    }
-
-    .popup-card.gold {
-      background: linear-gradient(135deg, #fff4d9, #ffe9b8);
-    }
-
-    .popup-small {
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      color: var(--muted);
-    }
-
-    .popup-big {
-      font-size: clamp(2.4rem, 6vw, 4.6rem);
-      font-weight: 900;
-      line-height: 1.02;
-      margin-bottom: 18px;
-      color: var(--text);
-    }
-
-    .popup-date {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      font-weight: 800;
-      color: var(--brand-dark);
-      margin-bottom: 14px;
-    }
-
-    .popup-note {
-      font-size: 1.06rem;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 52ch;
-    }
-
     @media (max-width: 900px) {
       .termin-card {
         grid-template-columns: 1fr;
@@ -345,11 +259,6 @@
 
       .termingrafik {
         min-height: auto;
-      }
-
-      .popup-card {
-        min-height: 420px;
-        padding: 30px 22px;
       }
     }
   </style>
@@ -386,7 +295,8 @@
           </p>
 
           <div class="buttons">
-            <button class="button button-secondary" type="button" onclick="openOverlay('overlay-mai')">Termin vergrößern</button>
+            <a class="button button-primary" href="arbeitseinsatz-2026-05-09.ics" download>In Kalender eintragen</a>
+            <a class="button button-secondary" href="termin-arbeitseinsatz-mai.html">Termin vergrößern</a>
           </div>
         </div>
 
@@ -414,7 +324,8 @@
           </p>
 
           <div class="buttons">
-            <button class="button button-secondary" type="button" onclick="openOverlay('overlay-juni')">Termin vergrößern</button>
+            <a class="button button-primary" href="arbeitseinsatz-2026-06-06.ics" download>In Kalender eintragen</a>
+            <a class="button button-secondary" href="termin-arbeitseinsatz-juni.html">Termin vergrößern</a>
           </div>
         </div>
 
@@ -441,7 +352,7 @@
           </p>
 
           <div class="buttons">
-            <button class="button button-secondary" type="button" onclick="openOverlay('overlay-party')">Termin vergrößern</button>
+            <a class="button button-secondary" href="termin-summer-party.html">Termin vergrößern</a>
           </div>
         </div>
 
@@ -473,74 +384,5 @@
       kopieren, darunter einfügen und nur Text, Datum und Uhrzeit austauschen.
     </div>
   </div>
-
-  <div class="overlay" id="overlay-mai" onclick="bgClose(event, 'overlay-mai')">
-    <div class="overlay-box">
-      <div class="overlay-head">
-        <button class="button close-btn" type="button" onclick="closeOverlay('overlay-mai')">Schließen</button>
-      </div>
-      <div class="popup-card green">
-        <div class="popup-small">Arbeitseinsatz</div>
-        <div class="popup-big">09.05.2026</div>
-        <div class="popup-date">Beginn um 09:00 Uhr</div>
-        <div class="popup-note">
-          Gemeinsamer Arbeitseinsatz in der Gartenanlage.<br>
-          Bitte den Termin rechtzeitig vormerken.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="overlay" id="overlay-juni" onclick="bgClose(event, 'overlay-juni')">
-    <div class="overlay-box">
-      <div class="overlay-head">
-        <button class="button close-btn" type="button" onclick="closeOverlay('overlay-juni')">Schließen</button>
-      </div>
-      <div class="popup-card green">
-        <div class="popup-small">Arbeitseinsatz</div>
-        <div class="popup-big">06.06.2026</div>
-        <div class="popup-date">Beginn um 09:00 Uhr</div>
-        <div class="popup-note">
-          Weiterer gemeinsamer Arbeitseinsatz in der Anlage.<br>
-          Bitte ebenfalls vormerken.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="overlay" id="overlay-party" onclick="bgClose(event, 'overlay-party')">
-    <div class="overlay-box">
-      <div class="overlay-head">
-        <button class="button close-btn" type="button" onclick="closeOverlay('overlay-party')">Schließen</button>
-      </div>
-      <div class="popup-card gold">
-        <div class="popup-small">Save the Date</div>
-        <div class="popup-big">Summer Party</div>
-        <div class="popup-date">08.08.2026</div>
-        <div class="popup-note">
-          Bitte jetzt schon vormerken.<br>
-          Weitere Informationen zur Summer Party folgen später.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function openOverlay(id) {
-      var el = document.getElementById(id);
-      if (el) el.classList.add('open');
-    }
-
-    function closeOverlay(id) {
-      var el = document.getElementById(id);
-      if (el) el.classList.remove('open');
-    }
-
-    function bgClose(event, id) {
-      if (event.target.id === id) {
-        closeOverlay(id);
-      }
-    }
-  </script>
 </body>
 </html>

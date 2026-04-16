@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:arbeitseinsatz-2026-05-09@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260416T100000Z
+DTSTART:20260509T070000Z
+DTEND:20260509T100000Z
+SUMMARY:Arbeitseinsatz
+DESCRIPTION:Arbeitseinsatz des Kleingartenverein Am Galgenberg Weimar e.V.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR
