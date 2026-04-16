@@ -8,7 +8,7 @@
   <style>
     :root {
       --bg: #f7f7f2;
-      --card: rgba(255,255,255,.82);
+      --card: rgba(255,255,255,.86);
       --text: #183126;
       --muted: #5b6d62;
       --line: rgba(24,49,38,.1);
@@ -64,7 +64,7 @@
     h1, h2, h3, p { margin: 0; }
 
     h1 {
-      font-size: clamp(2.8rem, 6vw, 5.1rem);
+      font-size: clamp(2.6rem, 6vw, 5rem);
       line-height: .98;
       letter-spacing: -.04em;
       max-width: 12ch;
@@ -94,7 +94,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: rgba(251,252,247,.78);
+      background: rgba(251,252,247,.82);
       border-bottom: 1px solid rgba(24,49,38,.06);
     }
 
@@ -122,9 +122,8 @@
       background: transparent;
       display: grid;
       place-items: center;
-      box-shadow: none;
-      flex: 0 0 auto;
       overflow: hidden;
+      flex: 0 0 auto;
     }
 
     .brand-text small {
@@ -179,7 +178,7 @@
     }
 
     .button-secondary {
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       color: var(--text);
       border: 1px solid rgba(24,49,38,.08);
       font-weight: 700;
@@ -208,12 +207,13 @@
       transition: .2s ease;
     }
 
-    .hero { padding: 74px 0 38px; }
+    .hero { padding: 64px 0 34px; }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.02fr .98fr;
       gap: 34px;
+      align-items: stretch;
     }
 
     .card {
@@ -229,8 +229,8 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
-      min-height: 560px;
       justify-content: space-between;
+      min-height: 620px;
     }
 
     .hero-copy p.lead {
@@ -254,6 +254,7 @@
     .stat {
       padding: 18px;
       min-height: 120px;
+      background: rgba(255,255,255,.7);
     }
 
     .stat strong {
@@ -262,50 +263,68 @@
       margin-bottom: 6px;
     }
 
-    .hero-visual {
-      padding: 18px;
-      min-height: 560px;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(160deg,rgba(47,125,75,.92),rgba(24,49,38,.96));
-      color: #fff;
+    .hero-image-card {
+      padding: 16px;
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .hero-art {
+    .hero-main-image {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 420px;
       border-radius: 22px;
-      min-height: 100%;
-      border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg,#8fca70 0%,#5ea14a 28%,#387a34 60%,#214f28 100%);
-      position: relative;
       overflow: hidden;
+      box-shadow: 0 18px 40px rgba(24,49,38,.14);
     }
 
-    .hero-art svg {
+    .hero-main-image img {
       width: 100%;
       height: 100%;
-      position: absolute;
-      inset: 0;
+      object-fit: cover;
+      display: block;
     }
 
-    .floating-note {
+    .hero-main-caption {
       position: absolute;
       left: 18px;
       right: 18px;
       bottom: 18px;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 20px;
-      padding: 16px 18px;
-      backdrop-filter: blur(14px);
+      background: rgba(24,49,38,.38);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      padding: 14px 16px;
     }
 
-    .floating-note strong {
+    .hero-main-caption strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      font-size: 1rem;
     }
 
-    .floating-note span {
-      color: rgba(255,255,255,.92);
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .gallery-thumb {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(24,49,38,.10);
+      aspect-ratio: 1 / 1;
+      background: #fff;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .hero-termine-card {
@@ -398,7 +417,8 @@
 
     .contact-layout,
     .termine-layout,
-    .footer-grid {
+    .footer-grid,
+    .gallery-section-grid {
       display: grid;
       gap: 20px;
     }
@@ -406,20 +426,16 @@
     .contact-layout { grid-template-columns: .86fr 1.14fr; }
     .termine-layout { grid-template-columns: 1.05fr .95fr; }
     .footer-grid { grid-template-columns: 1.3fr .7fr; }
+    .gallery-section-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
 
-    .feature,
     .doc-card,
     .timeline-card,
     .glass-card,
     .contact-card,
     .footer-card,
-    .termine-card {
+    .termine-card,
+    .gallery-card {
       padding: 24px;
-    }
-
-    .feature-icon,
-    .doc-icon {
-      display: none;
     }
 
     .cta-panel {
@@ -431,6 +447,18 @@
       border-radius: var(--radius);
       background: linear-gradient(135deg,rgba(47,125,75,.08),rgba(232,176,76,.12));
       border: 1px solid rgba(24,49,38,.08);
+    }
+
+    .gallery-card {
+      padding: 12px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
     }
 
     .contact-list {
@@ -510,9 +538,6 @@
       font-size: .92rem;
     }
 
-    .reveal { opacity: 1; transform: none; }
-    .reveal.visible { opacity: 1; transform: none; }
-
     .pill-link {
       display: inline-flex;
       align-items: center;
@@ -548,13 +573,18 @@
       .footer-grid,
       .grid-2,
       .docs-grid,
-      .termine-layout {
+      .termine-layout,
+      .gallery-section-grid {
         grid-template-columns: 1fr;
       }
 
       .hero-copy,
-      .hero-visual {
+      .hero-image-card {
         min-height: auto;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0,1fr));
       }
     }
 
@@ -635,7 +665,8 @@
       .hero-micro,
       .field-grid,
       .cta-panel,
-      .hero-termine-card {
+      .hero-termine-card,
+      .gallery-grid {
         grid-template-columns: 1fr;
       }
 
@@ -650,6 +681,14 @@
 
       .hero {
         padding-top: 28px;
+      }
+
+      .hero-main-image {
+        min-height: 300px;
+      }
+
+      .gallery-card img {
+        height: 240px;
       }
     }
   </style>
@@ -687,7 +726,7 @@
   <main>
     <section class="hero" id="start">
       <div class="container hero-grid">
-        <div class="card hero-copy reveal">
+        <div class="card hero-copy">
           <div>
             <span class="eyebrow">Grün. Gemeinschaftlich. Nah in Weimar.</span>
             <div style="height:18px"></div>
@@ -727,30 +766,25 @@
           </div>
         </div>
 
-        <div class="card hero-visual reveal">
-          <div class="hero-art">
-            <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid slice">
-              <circle cx="490" cy="115" r="54" fill="rgba(255,248,210,.82)"/>
-              <path d="M0 500C110 430 190 415 275 448C374 486 445 471 600 390V760H0V500Z" fill="#6fb357"/>
-              <path d="M0 565C116 505 215 495 293 522C386 556 466 545 600 472V760H0V565Z" fill="#4e9441" opacity=".95"/>
-              <path d="M0 645C115 614 208 615 292 645C386 678 461 676 600 630V760H0V645Z" fill="#2d6b33" opacity=".92"/>
-              <g transform="translate(200 350)">
-                <rect x="38" y="110" width="135" height="116" rx="10" fill="#f5d07b"/>
-                <path d="M20 120L105 48L193 120" fill="#5a301a"/>
-                <rect x="91" y="156" width="28" height="70" rx="4" fill="#865530"/>
-              </g>
-              <g fill="#295d25">
-                <circle cx="135" cy="455" r="38"/>
-                <circle cx="172" cy="432" r="28"/>
-                <circle cx="446" cy="420" r="42"/>
-                <circle cx="488" cy="448" r="32"/>
-              </g>
-              <path d="M174 760C194 680 234 618 302 560C358 513 404 478 439 449" stroke="#d9c58b" stroke-width="34" stroke-linecap="round" fill="none" opacity=".94"/>
-            </svg>
+        <div class="card hero-image-card">
+          <div class="hero-main-image">
+            <img src="Image 2026-04-10 at 22.18.48.jpeg" alt="Gartenanlage mit Weg und Blüten">
+            <div class="hero-main-caption">
+              <strong>Ein Blick in unsere Gartenanlage</strong>
+              <span>Blühende Wege, gepflegte Parzellen und naturnahe Erholung mitten in Weimar.</span>
+            </div>
           </div>
-          <div class="floating-note">
-            <strong>Ruhe, Gemeinschaft und Gartenfreude</strong>
-            <span>Ein freundlicher digitaler Auftritt für Vereinsmitglieder, Interessierte und Besucher.</span>
+
+          <div class="gallery-grid">
+            <a class="gallery-thumb" href="Image 2026-03-18 at 11.50.11.jpeg" target="_blank" rel="noopener">
+              <img src="Image 2026-03-18 at 11.50.11.jpeg" alt="Kirschen">
+            </a>
+            <a class="gallery-thumb" href="Image 2026-03-18 at 11.50.11-2.jpeg" target="_blank" rel="noopener">
+              <img src="Image 2026-03-18 at 11.50.11-2.jpeg" alt="Weiße Blüte">
+            </a>
+            <a class="gallery-thumb" href="Image 2026-03-18 at 11.50.11-3.jpeg" target="_blank" rel="noopener">
+              <img src="Image 2026-03-18 at 11.50.11-3.jpeg" alt="Erdbeeren und Blüten">
+            </a>
           </div>
         </div>
       </div>
@@ -758,7 +792,7 @@
 
     <section class="section" id="verein">
       <div class="container timeline">
-        <div class="card timeline-card reveal">
+        <div class="card timeline-card">
           <span class="eyebrow">Der Verein</span>
           <div style="height:14px"></div>
           <h2>Tradition, Verantwortung und Freude am Gärtnern.</h2>
@@ -771,7 +805,7 @@
           <div class="timeline-item" style="border-bottom:0"><div class="year">Zukunft</div><div><h3>Modern im Web</h3><p>Übersichtlich, mobil lesbar und leicht zugänglich für alle wichtigen Vereinsinformationen.</p></div></div>
         </div>
 
-        <div class="card glass-card reveal">
+        <div class="card glass-card">
           <span class="eyebrow">Was die Seite bietet</span>
           <div style="height:16px"></div>
 
@@ -791,25 +825,50 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Eindrücke aus dem Garten</span>
+            <div style="height:14px"></div>
+            <h2>Mehr Farbe und mehr Gartengefühl.</h2>
+          </div>
+          <p>Ein paar Impressionen aus der Anlage sorgen für mehr Lebendigkeit und zeigen, was den Verein ausmacht: Blüten, Ernte und gepflegte Gärten.</p>
+        </div>
+
+        <div class="gallery-section-grid">
+          <article class="card gallery-card">
+            <img src="Image 2026-03-18 at 11.50.12-4.jpeg" alt="Iris im Garten">
+          </article>
+          <article class="card gallery-card">
+            <img src="Image 2026-03-18 at 11.50.12-5.jpeg" alt="Violette Iris">
+          </article>
+          <article class="card gallery-card">
+            <img src="Image 2026-03-18 at 11.50.11-3.jpeg" alt="Erdbeeren mit Blüten">
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section membership" id="dokumente">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head">
           <div><span class="eyebrow">Dokumente</span><div style="height:14px"></div><h2>Wichtige Unterlagen gebündelt an einem Ort.</h2></div>
           <p>Hier finden Sie Satzung, Ordnungen, Formulare und weitere Unterlagen direkt als PDF zum Öffnen oder Herunterladen.</p>
         </div>
 
         <div class="docs-grid">
-          <article class="card doc-card reveal"><h3>Satzung</h3><p>Die aktuelle Satzung des Kleingartenvereins „Am Galgenberg“ e. V.</p><a class="pill-link" href="Satzung.pdf" target="_blank" rel="noopener">PDF öffnen</a></article>
-          <article class="card doc-card reveal"><h3>Gartenordnungen</h3><p>Gartenordnung des Vereins, Rahmenkleingartenordnung sowie Hinweise zu Verstößen und Gebühren.</p><a class="pill-link" href="Gartenordnung.pdf" target="_blank" rel="noopener">Gartenordnung</a><br><br><a class="pill-link" href="Rahmenkleingartenordnung.pdf" target="_blank" rel="noopener">Rahmenordnung</a><br><br><a class="pill-link" href="Verstöße-gegen-die-Gartenordnung.pdf" target="_blank" rel="noopener">Verstöße / Gebühren</a></article>
-          <article class="card doc-card reveal"><h3>Formulare</h3><p>Wichtige Formulare für Aufnahme, Übernahme und Bauangelegenheiten in der Gartenanlage.</p><a class="pill-link" href="Mitgliedsantrag.pdf" target="_blank" rel="noopener">Mitgliedsantrag</a><br><br><a class="pill-link" href="Übernahmeerklärung.pdf" target="_blank" rel="noopener">Übernahmeerklärung</a><br><br><a class="pill-link" href="Richtlinie_Bau_Anlage_1.pdf" target="_blank" rel="noopener">Baurichtlinie Anlage 1</a><br><br><a class="pill-link" href="Richtlinie_Bau_Anlage_2.pdf" target="_blank" rel="noopener">Baurichtlinie Anlage 2</a></article>
-          <article class="card doc-card reveal"><h3>Datenschutz</h3><p>Datenschutzerklärung des Kleingartenvereins „Am Galgenberg“ e. V.</p><a class="pill-link" href="Datenschutzerklärung.pdf" target="_blank" rel="noopener">PDF öffnen</a></article>
+          <article class="card doc-card"><h3>Satzung</h3><p>Die aktuelle Satzung des Kleingartenvereins „Am Galgenberg“ e. V.</p><a class="pill-link" href="Satzung.pdf" target="_blank" rel="noopener">PDF öffnen</a></article>
+          <article class="card doc-card"><h3>Gartenordnungen</h3><p>Gartenordnung des Vereins, Rahmenkleingartenordnung sowie Hinweise zu Verstößen und Gebühren.</p><a class="pill-link" href="Gartenordnung.pdf" target="_blank" rel="noopener">Gartenordnung</a><br><br><a class="pill-link" href="Rahmenkleingartenordnung.pdf" target="_blank" rel="noopener">Rahmenordnung</a><br><br><a class="pill-link" href="Verstöße-gegen-die-Gartenordnung.pdf" target="_blank" rel="noopener">Verstöße / Gebühren</a></article>
+          <article class="card doc-card"><h3>Formulare</h3><p>Wichtige Formulare für Aufnahme, Übernahme und Bauangelegenheiten in der Gartenanlage.</p><a class="pill-link" href="Mitgliedsantrag.pdf" target="_blank" rel="noopener">Mitgliedsantrag</a><br><br><a class="pill-link" href="Übernahmeerklärung.pdf" target="_blank" rel="noopener">Übernahmeerklärung</a><br><br><a class="pill-link" href="Richtlinie_Bau_Anlage_1.pdf" target="_blank" rel="noopener">Baurichtlinie Anlage 1</a><br><br><a class="pill-link" href="Richtlinie_Bau_Anlage_2.pdf" target="_blank" rel="noopener">Baurichtlinie Anlage 2</a></article>
+          <article class="card doc-card"><h3>Datenschutz</h3><p>Datenschutzerklärung des Kleingartenvereins „Am Galgenberg“ e. V.</p><a class="pill-link" href="Datenschutzerklärung.pdf" target="_blank" rel="noopener">PDF öffnen</a></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="vereinsheim">
       <div class="container termine-layout">
-        <section class="card termine-card reveal">
+        <section class="card termine-card">
           <span class="eyebrow">Vermietung Vereinsheim</span>
           <div style="height:14px"></div>
           <h2>Unser Vereinsheim für Ihre Feier.</h2>
@@ -823,7 +882,7 @@
           </div>
         </section>
 
-        <section class="card termine-card reveal">
+        <section class="card termine-card">
           <div class="map-box" style="background:#fff; margin-top:0; padding:12px;">
             <iframe
               id="blk39762"
@@ -855,7 +914,7 @@
 
     <section class="section" id="termine">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head">
           <div>
             <span class="eyebrow">Termine für Vereinsmitglieder</span>
             <div style="height:14px"></div>
@@ -879,7 +938,7 @@
 
     <section class="section" id="kontakt">
       <div class="container contact-layout">
-        <aside class="card contact-card reveal">
+        <aside class="card contact-card">
           <span class="eyebrow">Kontakt</span>
           <div style="height:14px"></div>
           <h2>Sprechen Sie uns einfach an.</h2>
@@ -893,7 +952,7 @@
           </div>
         </aside>
 
-        <section class="card contact-card reveal">
+        <section class="card contact-card">
           <h3>Kontaktformular</h3>
           <p style="margin-bottom:18px;">Das Formular öffnet aktuell das Standard-Mailprogramm des Besuchers.</p>
 
@@ -947,7 +1006,7 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <section class="card footer-card reveal">
+      <section class="card footer-card">
         <span class="eyebrow">KGV Am Galgenberg Weimar e.V.</span>
         <div style="height:14px"></div>
         <h3>Digital modernisiert, persönlich geblieben.</h3>
@@ -963,7 +1022,7 @@
         </div>
       </section>
 
-      <section class="card footer-card reveal">
+      <section class="card footer-card">
         <h3>Rechtliches</h3>
         <p><strong>Impressum</strong><br><a href="impressum.html">Zum Impressum</a></p>
         <p><strong>Datenschutz</strong><br><a href="datenschutz.html">Zur Datenschutzerklärung</a></p>
