@@ -9,9 +9,12 @@
       --text: #183126;
       --muted: #5b6d62;
       --brand: #2f7d4b;
+      --brand-dark: #276a40;
       --line: rgba(24,49,38,.10);
       --shadow: 0 14px 40px rgba(24,49,38,.08);
       --bg: #ffffff;
+      --soft: #f7fbf5;
+      --soft-2: #fff8ef;
     }
 
     * { box-sizing: border-box; }
@@ -72,13 +75,42 @@
 
     .termin-card {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 1.02fr .98fr;
       gap: 20px;
       border: 1px solid var(--line);
       border-radius: 24px;
       padding: 24px;
       background: #fff;
       box-shadow: var(--shadow);
+    }
+
+    .termin-card.highlight {
+      background: linear-gradient(135deg, rgba(47,125,75,.06), rgba(255,255,255,1));
+    }
+
+    .termin-card.party {
+      background: linear-gradient(135deg, rgba(255,190,90,.20), rgba(255,255,255,1));
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .badge.green {
+      background: rgba(47,125,75,.12);
+      color: var(--brand);
+    }
+
+    .badge.gold {
+      background: rgba(255,188,78,.20);
+      color: #8a5a00;
     }
 
     .termin-content h2 {
@@ -120,9 +152,9 @@
     }
 
     .button-primary {
-      background: #2f7d4b;
+      background: var(--brand);
       color: #ffffff;
-      border: 1px solid #276a40;
+      border: 1px solid var(--brand-dark);
       box-shadow: 0 10px 24px rgba(47,125,75,.20);
     }
 
@@ -144,21 +176,57 @@
     .image-wrap img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 330px;
+      object-fit: cover;
       border-radius: 16px;
     }
 
-    .placeholder {
-      min-height: 280px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border-radius: 16px;
-      border: 2px dashed rgba(47,125,75,.20);
+    .termingrafik {
+      border-radius: 18px;
+      padding: 26px 22px;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(24,49,38,.08);
+    }
+
+    .termingrafik.green {
+      background: linear-gradient(135deg, #eef8ee, #dff0de);
+    }
+
+    .termingrafik.gold {
+      background: linear-gradient(135deg, #fff4d9, #ffe9b8);
+    }
+
+    .termingrafik .small {
+      font-size: .92rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
       color: var(--muted);
-      padding: 20px;
-      line-height: 1.6;
-      background: linear-gradient(180deg, rgba(137,185,109,.08), rgba(255,255,255,.95));
+    }
+
+    .termingrafik .big {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.02;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .termingrafik .date {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--brand-dark);
+      margin-bottom: 10px;
+    }
+
+    .termingrafik .note {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
     .mini-gallery {
@@ -204,6 +272,12 @@
       .hero-image img {
         height: 220px;
       }
+
+      .image-wrap img,
+      .termingrafik {
+        min-height: auto;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -223,78 +297,84 @@
 
     <section class="termine-list">
 
-      <article class="termin-card">
+      <article class="termin-card highlight">
         <div class="termin-content">
-          <h2>Wasser anstellen 2026</h2>
+          <span class="badge green">Arbeitseinsatz</span>
+          <h2>Arbeitseinsatz im Mai</h2>
 
           <div class="termin-meta">
-            <div>Datum: Samstag, 11.04.2026</div>
-            <div>Uhrzeit: ab 09:00 Uhr</div>
+            <div>Datum: Samstag, 09.05.2026</div>
+            <div>Uhrzeit: 09:00 Uhr</div>
           </div>
 
           <p>
-            Bitte beachten Sie den aktuellen Aushang zum Termin „Wasser anstellen“.
-            Weitere Hinweise und organisatorische Informationen entnehmen Sie bitte dem Terminbild.
+            Bitte merken Sie sich den ersten Arbeitseinsatz im Mai vor.
+            Weitere Informationen und mögliche Hinweise können bei Bedarf später ergänzt werden.
           </p>
 
           <div class="buttons">
-            <a class="button button-primary" href="termin-wasser-anstellen-2026.ics" download>In Kalender eintragen</a>
-            <a class="button button-secondary" href="1-Termin.jpg" target="_blank" rel="noopener">Terminbild groß öffnen</a>
+            <a class="button button-secondary" href="Image 2026-03-18 at 11.50.12-4.jpeg" target="_blank" rel="noopener">Grafik vergrößern</a>
           </div>
         </div>
 
         <div class="image-wrap">
-          <a href="1-Termin.jpg" target="_blank" rel="noopener">
-            <img src="1-Termin.jpg" alt="Termine 2026 – Wasser anstellen">
+          <a href="Image 2026-03-18 at 11.50.12-4.jpeg" target="_blank" rel="noopener">
+            <img src="Image 2026-03-18 at 11.50.12-4.jpeg" alt="Arbeitseinsatz Mai">
           </a>
         </div>
       </article>
 
-      <article class="termin-card">
+      <article class="termin-card highlight">
         <div class="termin-content">
-          <h2>Nächster Vereinstermin</h2>
+          <span class="badge green">Arbeitseinsatz</span>
+          <h2>Arbeitseinsatz im Juni</h2>
 
           <div class="termin-meta">
-            <div>Datum: bitte ergänzen</div>
-            <div>Uhrzeit: bitte ergänzen</div>
+            <div>Datum: Samstag, 06.06.2026</div>
+            <div>Uhrzeit: 09:00 Uhr</div>
           </div>
 
           <p>
-            Dies ist ein Platzhalter für einen weiteren Termin. Hier können Sie später
-            neue Termine einfach ergänzen oder bestehende Termine austauschen.
+            Auch im Juni findet ein weiterer gemeinsamer Arbeitseinsatz statt.
+            Bitte den Termin rechtzeitig vormerken.
           </p>
 
           <div class="buttons">
-            <a class="button button-secondary" href="#">Termin ergänzen</a>
+            <a class="button button-secondary" href="Image 2026-03-18 at 11.50.12-5.jpeg" target="_blank" rel="noopener">Grafik vergrößern</a>
           </div>
         </div>
 
         <div class="image-wrap">
-          <img src="Image 2026-03-18 at 11.50.11-3.jpeg" alt="Erdbeeren und Blüten">
+          <a href="Image 2026-03-18 at 11.50.12-5.jpeg" target="_blank" rel="noopener">
+            <img src="Image 2026-03-18 at 11.50.12-5.jpeg" alt="Arbeitseinsatz Juni">
+          </a>
         </div>
       </article>
 
-      <article class="termin-card">
+      <article class="termin-card party">
         <div class="termin-content">
-          <h2>Arbeitseinsatz / Mitgliederversammlung</h2>
+          <span class="badge gold">Save the Date</span>
+          <h2>Summer Party 2026</h2>
 
           <div class="termin-meta">
-            <div>Datum: bitte ergänzen</div>
-            <div>Uhrzeit: bitte ergänzen</div>
+            <div>Datum: Samstag, 08.08.2026</div>
           </div>
 
           <p>
-            Auch weitere Termine wie Arbeitseinsätze, Mitgliederversammlungen oder
-            saisonale Hinweise können hier in gleicher Form ergänzt werden.
+            Bitte jetzt schon vormerken:
+            Unsere Summer Party findet am 08.08.2026 statt.
+            Weitere Informationen zum Ablauf folgen später.
           </p>
 
           <div class="buttons">
-            <a class="button button-secondary" href="#">Termin ergänzen</a>
+            <a class="button button-secondary" href="Image 2026-03-18 at 11.50.11-3.jpeg" target="_blank" rel="noopener">Grafik vergrößern</a>
           </div>
         </div>
 
         <div class="image-wrap">
-          <img src="Image 2026-03-18 at 11.50.12-4.jpeg" alt="Iris im Garten">
+          <a href="Image 2026-03-18 at 11.50.11-3.jpeg" target="_blank" rel="noopener">
+            <img src="Image 2026-03-18 at 11.50.11-3.jpeg" alt="Save the Date Summer Party">
+          </a>
         </div>
       </article>
 
@@ -307,15 +387,15 @@
       <a href="Image 2026-03-18 at 11.50.11-2.jpeg" target="_blank" rel="noopener">
         <img src="Image 2026-03-18 at 11.50.11-2.jpeg" alt="Weiße Blüte">
       </a>
-      <a href="Image 2026-03-18 at 11.50.12-5.jpeg" target="_blank" rel="noopener">
-        <img src="Image 2026-03-18 at 11.50.12-5.jpeg" alt="Violette Iris">
+      <a href="Image 2026-04-10 at 22.18.48.jpeg" target="_blank" rel="noopener">
+        <img src="Image 2026-04-10 at 22.18.48.jpeg" alt="Gartenweg">
       </a>
     </section>
 
     <div class="hinweis">
       Tipp: Für neue Termine können Sie einfach einen kompletten Block
       <strong>&lt;article class="termin-card"&gt; ... &lt;/article&gt;</strong>
-      kopieren, darunter einfügen und nur Text, Bild und Kalenderdatei austauschen.
+      kopieren, darunter einfügen und nur Text, Datum und Bild austauschen.
     </div>
   </div>
 </body>
