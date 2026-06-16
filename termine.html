@@ -3,467 +3,506 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Termine Vereinsmitglieder</title>
+  <title>Termine 2026 - KGV Am Galgenberg Weimar e.V.</title>
+  <meta name="description" content="Aktuelle Termine des Kleingartenvereins Am Galgenberg Weimar e.V." />
   <style>
     :root {
+      --bg: #f7f7f2;
+      --card: rgba(255,255,255,.92);
       --text: #183126;
       --muted: #5b6d62;
+      --line: rgba(24,49,38,.1);
       --brand: #2f7d4b;
       --brand-dark: #276a40;
-      --line: rgba(24,49,38,.10);
-      --shadow: 0 14px 40px rgba(24,49,38,.08);
-      --bg: #ffffff;
+      --gold: #d9a441;
+      --rose: #c95e49;
+      --shadow: 0 20px 60px rgba(24,49,38,.12);
+      --radius: 24px;
+      --max: 1120px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(137,185,109,.28), transparent 32%),
+        radial-gradient(circle at top right, rgba(232,176,76,.20), transparent 28%),
+        linear-gradient(180deg, #fbfcf7 0%, var(--bg) 100%);
     }
 
-    .wrap {
-      max-width: 1100px;
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
-      padding: 24px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(251,252,247,.86);
+      border-bottom: 1px solid rgba(24,49,38,.07);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .button {
+      border: 1px solid #276a40;
+      border-radius: 999px;
+      padding: 11px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand);
+      color: #fff !important;
+      box-shadow: 0 10px 24px rgba(47,125,75,.20);
+      font-weight: 800;
+      font-size: .95rem;
+      line-height: 1.2;
+    }
+
+    .button:hover { background: var(--brand-dark); }
+
+    main { padding: 46px 0 64px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .card {
+      border: 1px solid rgba(24,49,38,.07);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .intro {
-      margin-bottom: 18px;
-      padding: 22px;
-      border: 1px solid rgba(24,49,38,.08);
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(47,125,75,.08), rgba(255,255,255,1));
-      box-shadow: var(--shadow);
+      padding: clamp(26px, 4vw, 46px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
     }
 
-    .intro h1 {
-      margin: 0 0 8px 0;
-      font-size: 2rem;
-      line-height: 1.1;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(47,125,75,.1);
+      color: var(--brand);
+      font-size: .92rem;
+      font-weight: 800;
     }
 
-    .intro p {
-      margin: 0;
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(2.35rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      max-width: 12ch;
+    }
+
+    p {
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.75;
+      font-size: 1.04rem;
     }
 
     .hero-image {
-      margin-top: 14px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 14px 40px rgba(24,49,38,.10);
+      min-height: 420px;
+      position: relative;
     }
 
     .hero-image img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .termine-list {
-      display: grid;
-      gap: 18px;
-      margin-top: 18px;
+    .hero-caption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      color: #fff;
+      background: rgba(24,49,38,.42);
+      backdrop-filter: blur(10px);
     }
 
-    .termin-card {
+    .events {
+      margin-top: 26px;
       display: grid;
-      grid-template-columns: 1.02fr .98fr;
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 20px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
+    }
+
+    .event-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 260px;
+      cursor: pointer;
+    }
+
+    .event-image {
+      min-height: 240px;
       background: #fff;
-      box-shadow: var(--shadow);
     }
 
-    .termin-card.highlight {
-      background: linear-gradient(135deg, rgba(47,125,75,.06), rgba(255,255,255,1));
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .termin-card.party {
-      background: linear-gradient(135deg, rgba(255,190,90,.20), rgba(255,255,255,1));
+    .event-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: center;
     }
 
     .badge {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
+      width: fit-content;
+      padding: 8px 13px;
       border-radius: 999px;
-      font-size: .9rem;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .badge.green {
-      background: rgba(47,125,75,.12);
+      background: rgba(47,125,75,.10);
       color: var(--brand);
+      font-weight: 800;
+      font-size: .9rem;
     }
 
     .badge.gold {
-      background: rgba(255,188,78,.20);
+      background: rgba(217,164,65,.16);
       color: #8a5a00;
     }
 
-    .termin-content h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.7rem;
-      line-height: 1.15;
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.03;
+      letter-spacing: -.035em;
     }
 
-    .termin-meta {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 16px;
+    .event-date {
+      font-size: clamp(1.45rem, 2.7vw, 2.25rem);
+      line-height: 1.08;
+      font-weight: 900;
+      color: var(--brand);
+      letter-spacing: -.03em;
+    }
+
+    .event-time {
+      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      font-weight: 900;
       color: var(--text);
-      font-weight: 700;
     }
 
-    .termin-content p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
+    .event-card.gold .event-date { color: #8a5a00; }
 
-    .buttons {
+    .actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 11px 18px;
-      font-weight: 800;
-      font-size: .95rem;
-      text-decoration: none;
-      border: 0;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .button-primary {
-      background: var(--brand);
-      color: #ffffff;
-      border: 1px solid var(--brand-dark);
-      box-shadow: 0 10px 24px rgba(47,125,75,.20);
+      margin-top: 6px;
     }
 
     .button-secondary {
-      background: #ffffff;
-      color: #183126;
-      border: 1px solid rgba(24,49,38,.12);
+      background: rgba(255,255,255,.9);
+      color: var(--text) !important;
+      border: 1px solid rgba(24,49,38,.11);
+      box-shadow: none;
     }
 
-    .termingrafik {
-      border-radius: 18px;
-      padding: 26px 22px;
-      min-height: 330px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: inset 0 0 0 1px rgba(24,49,38,.08);
-    }
-
-    .termingrafik.green {
-      background: linear-gradient(135deg, #eef8ee, #dff0de);
-    }
-
-    .termingrafik.gold {
-      background: linear-gradient(135deg, #fff4d9, #ffe9b8);
-    }
-
-    .termingrafik .small {
-      font-size: .92rem;
-      font-weight: 800;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      color: var(--muted);
-    }
-
-    .termingrafik .big {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900;
-      line-height: 1.02;
-      margin-bottom: 14px;
-      color: var(--text);
-    }
-
-    .termingrafik .date {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--brand-dark);
-      margin-bottom: 10px;
-    }
-
-    .termingrafik .note {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    .mini-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
+    .note {
       margin-top: 22px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(47,125,75,.08);
+      border: 1px solid rgba(24,49,38,.08);
+      color: var(--muted);
     }
 
-    .mini-gallery a {
-      display: block;
-      border-radius: 18px;
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(24,49,38,.72);
+      padding: 18px;
+      z-index: 100;
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-box {
+      width: min(680px, 100%);
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 30px 90px rgba(0,0,0,.32);
       overflow: hidden;
-      box-shadow: 0 10px 24px rgba(24,49,38,.10);
+      max-height: calc(100vh - 36px);
     }
 
-    .mini-gallery img {
+    .modal-box img {
       width: 100%;
-      height: 180px;
+      max-height: 42vh;
       object-fit: cover;
       display: block;
     }
 
-    @media (max-width: 900px) {
-      .termin-card {
-        grid-template-columns: 1fr;
-      }
+    .modal-content { padding: 24px; }
 
-      .mini-gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image img {
-        height: 180px;
-      }
-
-      .termingrafik {
-        min-height: auto;
-      }
+    .close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 0;
+      background: #fff;
+      color: var(--text);
+      font-size: 1.6rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
-    @media (max-width: 640px) {
-      .wrap {
-        padding: 8px;
+    footer {
+      padding: 22px 0 34px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .events,
+      .event-card {
+        grid-template-columns: 1fr;
       }
 
-      .intro {
-        margin-bottom: 10px;
-        padding: 12px 14px;
-        border-radius: 16px;
+      .hero-image { min-height: 300px; }
+      .event-image { min-height: 220px; }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: auto;
+        padding: 8px 0;
       }
 
-      .intro h1 {
-        font-size: 1.18rem;
-        line-height: 1.15;
-        margin-bottom: 4px;
+      .brand img {
+        width: 38px;
+        height: 38px;
       }
 
-      .intro p {
-        font-size: .88rem;
-        line-height: 1.45;
+      .brand small { font-size: .62rem; }
+      .brand span { font-size: .9rem; line-height: 1.1; display: block; }
+
+      main { padding-top: 20px; }
+
+      .intro { padding: 24px; }
+
+      .event-content { padding: 22px; }
+
+      .event-date {
+        font-size: 1.75rem;
       }
 
-      .hero-image {
-        display: none;
+      .event-time {
+        font-size: 1.38rem;
       }
 
-      .termine-list {
-        gap: 12px;
-        margin-top: 10px;
+      .modal {
+        align-items: flex-start;
+        padding-top: 70px;
       }
 
-      .termin-card {
-        padding: 14px;
-        gap: 12px;
-        border-radius: 16px;
-      }
-
-      .badge {
-        margin-bottom: 8px;
-        padding: 6px 10px;
-        font-size: .78rem;
-      }
-
-      .termin-content h2 {
-        font-size: 1.16rem;
-        margin-bottom: 6px;
-      }
-
-      .termin-meta {
-        gap: 5px;
-        margin-bottom: 10px;
-        font-size: .9rem;
-      }
-
-      .termin-content p {
-        font-size: .9rem;
-        line-height: 1.45;
-      }
-
-      .buttons {
-        gap: 8px;
-        margin-top: 12px;
-      }
-
-      .button {
-        width: 100%;
-        padding: 10px 12px;
-        font-size: .9rem;
-      }
-
-      .termingrafik {
-        padding: 16px 14px;
-        border-radius: 14px;
-      }
-
-      .termingrafik .small {
-        font-size: .76rem;
-        margin-bottom: 6px;
-      }
-
-      .termingrafik .big {
-        font-size: 1.7rem;
-        margin-bottom: 8px;
-      }
-
-      .termingrafik .date {
-        font-size: .98rem;
-        margin-bottom: 6px;
-      }
-
-      .termingrafik .note {
-        font-size: .88rem;
-        line-height: 1.4;
-      }
-
-      .mini-gallery {
-        display: none;
+      .modal-box img {
+        max-height: 34vh;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="intro">
-      <h1>Termine für Vereinsmitglieder</h1>
-      <p>Hier finden Sie aktuelle Hinweise, wichtige Vereinstermine und Aushänge.</p>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html#start">
+        <img src="Logo-1550394658347+(002)-1920w.png" alt="Logo Kleingartenverein Am Galgenberg" />
+        <span><small>Kleingartenverein</small>Am Galgenberg Weimar e.V.</span>
+      </a>
+      <a class="button" href="index.html">Zur Startseite</a>
+    </div>
+  </header>
 
-      <div class="hero-image">
-        <img src="Image 2026-04-10 at 22.18.48.jpeg" alt="Gartenanlage mit Weg und Blüten">
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div class="card intro">
+          <span class="eyebrow">Termine 2026</span>
+          <h1>Aktuelle Termine für Vereinsmitglieder.</h1>
+          <p>
+            Die Arbeitseinsätze vom 09.05.2026 und 06.06.2026 sind erledigt.
+            Der nächste Arbeitseinsatz findet am 04.07.2026 statt.
+          </p>
+        </div>
+
+        <div class="card hero-image">
+          <img src="Bild.jpeg" alt="Hummel auf violetter Blüte" />
+          <div class="hero-caption">
+            <strong>Gemeinsam aktiv für unsere Anlage</strong>
+            <span>Alle wichtigen Termine übersichtlich auf einer Seite.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="events">
+        <article class="card event-card" data-title="Arbeitseinsatz" data-date="Samstag, 04.07.2026" data-time="Beginn: 09:00 Uhr" data-image="Image 2026-03-18 at 11.50.12-4.jpeg">
+          <div class="event-image">
+            <img src="Image 2026-03-18 at 11.50.12-4.jpeg" alt="Arbeitseinsatz Juli" />
+          </div>
+          <div class="event-content">
+            <span class="badge">Arbeitseinsatz</span>
+            <h2>Arbeitseinsatz</h2>
+            <div class="event-date">Samstag, 04.07.2026</div>
+            <div class="event-time">Beginn: 09:00 Uhr</div>
+            <p>Bitte den neuen Termin vormerken. Die vorherigen Arbeitseinsätze sind erledigt.</p>
+            <div class="actions">
+              <a class="button" href="termine-arbeitseinsatz-04072026.ics">In Kalender eintragen</a>
+              <span class="button button-secondary">Zum Vergrößern antippen</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card event-card gold" data-title="Sommerfest" data-date="Samstag, 08.08.2026" data-time="Uhrzeit folgt" data-image="Image 2026-03-18 at 11.50.11-3.jpeg">
+          <div class="event-image">
+            <img src="Image 2026-03-18 at 11.50.11-3.jpeg" alt="Sommerfest" />
+          </div>
+          <div class="event-content">
+            <span class="badge gold">Sommerfest</span>
+            <h2>Sommerfest</h2>
+            <div class="event-date">Samstag, 08.08.2026</div>
+            <div class="event-time">Uhrzeit folgt</div>
+            <p>Bitte den Termin vormerken. Weitere Informationen zum Ablauf folgen später.</p>
+            <div class="actions">
+              <span class="button button-secondary">Zum Vergrößern antippen</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="note">
+        Neue Termine können später einfach als weiterer Terminblock ergänzt werden.
       </div>
-    </section>
+    </div>
+  </main>
 
-    <section class="termine-list">
+  <footer>
+    <div class="container">
+      © <span id="year"></span> KGV Am Galgenberg Weimar e.V.
+    </div>
+  </footer>
 
-      <article class="termin-card highlight">
-        <div class="termin-content">
-          <span class="badge green">Arbeitseinsatz</span>
-          <h2>Arbeitseinsatz im Mai</h2>
-
-          <div class="termin-meta">
-            <div>Datum: Samstag, 09.05.2026</div>
-            <div>Uhrzeit: 09:00 Uhr</div>
-          </div>
-
-          <p>
-            Bitte merken Sie sich den ersten Arbeitseinsatz im Mai vor.
-            Weitere Informationen und mögliche Hinweise können bei Bedarf später ergänzt werden.
-          </p>
-
-          <div class="buttons">
-            <a class="button button-primary" href="arbeitseinsatz-2026-05-09.ics" download>In Kalender eintragen</a>
-            <a class="button button-secondary" href="termin-arbeitseinsatz-mai.html">Termin vergrößern</a>
-          </div>
-        </div>
-
-        <div class="termingrafik green">
-          <div class="small">Arbeitseinsatz</div>
-          <div class="big">09.05.2026</div>
-          <div class="date">Beginn um 09:00 Uhr</div>
-          <div class="note">Gemeinsamer Arbeitseinsatz in der Gartenanlage. Bitte Termin vormerken.</div>
-        </div>
-      </article>
-
-      <article class="termin-card highlight">
-        <div class="termin-content">
-          <span class="badge green">Arbeitseinsatz</span>
-          <h2>Arbeitseinsatz im Juni</h2>
-
-          <div class="termin-meta">
-            <div>Datum: Samstag, 06.06.2026</div>
-            <div>Uhrzeit: 09:00 Uhr</div>
-          </div>
-
-          <p>
-            Auch im Juni findet ein weiterer gemeinsamer Arbeitseinsatz statt.
-            Bitte den Termin rechtzeitig vormerken.
-          </p>
-
-          <div class="buttons">
-            <a class="button button-primary" href="arbeitseinsatz-2026-06-06.ics" download>In Kalender eintragen</a>
-            <a class="button button-secondary" href="termin-arbeitseinsatz-juni.html">Termin vergrößern</a>
-          </div>
-        </div>
-
-        <div class="termingrafik green">
-          <div class="small">Arbeitseinsatz</div>
-          <div class="big">06.06.2026</div>
-          <div class="date">Beginn um 09:00 Uhr</div>
-          <div class="note">Weiterer gemeinsamer Arbeitseinsatz. Bitte Termin einplanen.</div>
-        </div>
-      </article>
-
-      <article class="termin-card party">
-        <div class="termin-content">
-          <span class="badge gold">Save the Date</span>
-          <h2>Sommerfest 2026</h2>
-
-          <div class="termin-meta">
-            <div>Datum: Samstag, 08.08.2026</div>
-          </div>
-
-          <p>
-            Bitte jetzt schon vormerken: Unser Sommerfest findet am 08.08.2026 statt.
-            Weitere Informationen zum Ablauf folgen später.
-          </p>
-
-          <div class="buttons">
-            <a class="button button-secondary" href="termin-sommerfest.html">Termin vergrößern</a>
-          </div>
-        </div>
-
-        <div class="termingrafik gold">
-          <div class="small">Save the Date</div>
-          <div class="big">Sommerfest</div>
-          <div class="date">08.08.2026</div>
-          <div class="note">Jetzt schon vormerken – nähere Informationen folgen später.</div>
-        </div>
-      </article>
-
-    </section>
-
-    <section class="mini-gallery">
-      <a href="Image 2026-03-18 at 11.50.11.jpeg" target="_blank" rel="noopener">
-        <img src="Image 2026-03-18 at 11.50.11.jpeg" alt="Kirschen">
-      </a>
-      <a href="Image 2026-03-18 at 11.50.11-2.jpeg" target="_blank" rel="noopener">
-        <img src="Image 2026-03-18 at 11.50.11-2.jpeg" alt="Weiße Blüte">
-      </a>
-      <a href="Image 2026-04-10 at 22.18.48.jpeg" target="_blank" rel="noopener">
-        <img src="Image 2026-04-10 at 22.18.48.jpeg" alt="Gartenweg">
-      </a>
-    </section>
+  <div class="modal" id="modal">
+    <button class="close" type="button" id="closeModal" aria-label="Schließen">×</button>
+    <div class="modal-box">
+      <img id="modalImage" src="" alt="" />
+      <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <div class="event-date" id="modalDate"></div>
+        <div class="event-time" id="modalTime"></div>
+      </div>
+    </div>
   </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDate = document.getElementById('modalDate');
+    const modalTime = document.getElementById('modalTime');
+    const closeModal = document.getElementById('closeModal');
+
+    document.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return;
+        modalImage.src = card.dataset.image;
+        modalImage.alt = card.dataset.title;
+        modalTitle.textContent = card.dataset.title;
+        modalDate.textContent = card.dataset.date;
+        modalTime.textContent = card.dataset.time;
+        modal.classList.add('open');
+      });
+    });
+
+    closeModal.addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) modal.classList.remove('open');
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') modal.classList.remove('open');
+    });
+  </script>
 </body>
 </html>

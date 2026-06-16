@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:arbeitseinsatz-20260704-kgv-am-galgenberg@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260420T000000Z
+DTSTART:20260704T090000
+DTEND:20260704T120000
+SUMMARY:Arbeitseinsatz KGV Am Galgenberg
+DESCRIPTION:Arbeitseinsatz im Kleingartenverein Am Galgenberg Weimar e.V.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR
