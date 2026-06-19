@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:sommerfest-20260808-kgv-am-galgenberg@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260420T000000Z
+DTSTART:20260808T150000
+DTEND:20260808T200000
+SUMMARY:Sommerfest KGV Am Galgenberg
+DESCRIPTION:Sommerfest im Kleingartenverein Am Galgenberg Weimar e.V.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR
