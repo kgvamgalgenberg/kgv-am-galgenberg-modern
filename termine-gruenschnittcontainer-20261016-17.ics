@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:gruenschnittcontainer-20261016-kgv-am-galgenberg@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260817T112700Z
+DTSTART:20261016T100000
+DTEND:20261016T170000
+SUMMARY:Gruenschnittcontainer - KGV Am Galgenberg
+DESCRIPTION:Gruenschnittcontainer von 10:00 Uhr bis 17:00 Uhr.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+BEGIN:VEVENT
+UID:gruenschnittcontainer-20261017-kgv-am-galgenberg@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260817T112700Z
+DTSTART:20261017T090000
+DTEND:20261017T170000
+SUMMARY:Gruenschnittcontainer - KGV Am Galgenberg
+DESCRIPTION:Gruenschnittcontainer von 09:00 Uhr bis 17:00 Uhr. Sonntag, 18.10.2026 entfaellt.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR

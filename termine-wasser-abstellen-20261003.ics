@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wasser-abstellen-20261003-kgv-am-galgenberg@kgv-am-galgenberg-weimar.de
+DTSTAMP:20260817T112700Z
+DTSTART:20261003T090000
+DTEND:20261003T120000
+SUMMARY:Wasser abstellen - KGV Am Galgenberg
+DESCRIPTION:Wasser abstellen ab 09:00 Uhr. Unentschuldigte Nichtteilnahme: 20,00 EUR. Der Zugang zum Garten muss gewaehrleistet sein. Helfer treffen sich bereits gegen 08:30 Uhr am Vereinshaus.
+LOCATION:KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR

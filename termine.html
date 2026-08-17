@@ -15,7 +15,8 @@
       --brand: #2f7d4b;
       --brand-dark: #276a40;
       --gold: #d9a441;
-      --rose: #c95e49;
+      --gold-dark: #8a5a00;
+      --red: #b44a3a;
       --shadow: 0 20px 60px rgba(24,49,38,.12);
       --radius: 24px;
       --max: 1120px;
@@ -99,11 +100,11 @@
 
     .button:hover { background: var(--brand-dark); }
 
-    main { padding: 46px 0 64px; }
+    main { padding: 42px 0 64px; }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 1fr;
       gap: 22px;
       align-items: stretch;
     }
@@ -152,7 +153,7 @@
       font-size: clamp(2.35rem, 5vw, 4.5rem);
       line-height: 1;
       letter-spacing: -.045em;
-      max-width: 12ch;
+      max-width: 14ch;
     }
 
     p {
@@ -161,58 +162,25 @@
       font-size: 1.04rem;
     }
 
-    .hero-image {
-      min-height: 420px;
-      position: relative;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-caption {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      color: #fff;
-      background: rgba(24,49,38,.42);
-      backdrop-filter: blur(10px);
-    }
-
     .events {
       margin-top: 26px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: 1fr;
       gap: 20px;
     }
 
     .event-card {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 18px 1fr;
       min-height: 260px;
       cursor: pointer;
     }
 
-    .event-image {
-      min-height: 240px;
-      background: #fff;
-    }
-
-    .event-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .event-band { background: var(--brand); }
+    .event-card.gold .event-band { background: var(--gold); }
 
     .event-content {
-      padding: 24px;
+      padding: clamp(24px, 4vw, 38px);
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -232,13 +200,21 @@
 
     .badge.gold {
       background: rgba(217,164,65,.16);
-      color: #8a5a00;
+      color: var(--gold-dark);
     }
 
     h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 3.4rem);
       line-height: 1.03;
       letter-spacing: -.035em;
+    }
+
+    .event-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 4px;
     }
 
     .event-date {
@@ -250,12 +226,73 @@
     }
 
     .event-time {
-      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(47,125,75,.12);
+      color: var(--brand);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
       font-weight: 900;
-      color: var(--text);
     }
 
-    .event-card.gold .event-date { color: #8a5a00; }
+    .event-card.gold .event-date { color: var(--gold-dark); }
+    .event-card.gold .event-time {
+      background: rgba(217,164,65,.18);
+      color: var(--gold-dark);
+    }
+
+    .highlight {
+      margin-top: 4px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(47,125,75,.08);
+      border: 1px solid rgba(24,49,38,.08);
+      color: var(--text);
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .alert {
+      background: #fce9e5;
+      color: #87382c;
+      border-color: rgba(180,74,58,.18);
+    }
+
+    .schedule {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: minmax(210px, .8fr) 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(47,125,75,.08);
+      border: 1px solid rgba(24,49,38,.08);
+    }
+
+    .schedule-row strong {
+      font-size: 1.15rem;
+    }
+
+    .schedule-row span {
+      font-weight: 900;
+      color: var(--brand);
+      font-size: 1.2rem;
+    }
+
+    .schedule-row.cancelled {
+      background: #fce9e5;
+    }
+
+    .schedule-row.cancelled span {
+      color: var(--red);
+    }
 
     .actions {
       display: flex;
@@ -269,15 +306,6 @@
       color: var(--text) !important;
       border: 1px solid rgba(24,49,38,.11);
       box-shadow: none;
-    }
-
-    .note {
-      margin-top: 22px;
-      padding: 20px;
-      border-radius: 20px;
-      background: rgba(47,125,75,.08);
-      border: 1px solid rgba(24,49,38,.08);
-      color: var(--muted);
     }
 
     .modal {
@@ -294,7 +322,7 @@
     .modal.open { display: flex; }
 
     .modal-box {
-      width: min(680px, 100%);
+      width: min(720px, 100%);
       border-radius: 26px;
       background: #fff;
       box-shadow: 0 30px 90px rgba(0,0,0,.32);
@@ -302,14 +330,7 @@
       max-height: calc(100vh - 36px);
     }
 
-    .modal-box img {
-      width: 100%;
-      max-height: 42vh;
-      object-fit: cover;
-      display: block;
-    }
-
-    .modal-content { padding: 24px; }
+    .modal-content { padding: 28px; }
 
     .close {
       position: fixed;
@@ -333,17 +354,6 @@
       font-size: .95rem;
     }
 
-    @media (max-width: 920px) {
-      .hero,
-      .events,
-      .event-card {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image { min-height: 300px; }
-      .event-image { min-height: 220px; }
-    }
-
     @media (max-width: 760px) {
       .nav {
         min-height: auto;
@@ -362,23 +372,23 @@
 
       .intro { padding: 24px; }
 
-      .event-content { padding: 22px; }
-
-      .event-date {
-        font-size: 1.75rem;
+      .event-card {
+        grid-template-columns: 10px 1fr;
       }
 
-      .event-time {
-        font-size: 1.38rem;
+      .event-content { padding: 22px; }
+
+      .event-date { font-size: 1.65rem; }
+      .event-time { font-size: 1.2rem; }
+
+      .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
       }
 
       .modal {
         align-items: flex-start;
         padding-top: 70px;
-      }
-
-      .modal-box img {
-        max-height: 34vh;
       }
     }
   </style>
@@ -401,59 +411,58 @@
           <span class="eyebrow">Termine 2026</span>
           <h1>Aktuelle Termine für Vereinsmitglieder.</h1>
           <p>
-            Die Arbeitseinsätze vom 09.05.2026 und 06.06.2026 sind erledigt.
-            Der nächste Arbeitseinsatz findet am 04.07.2026 statt.
+            Die bisherigen Termine sind erledigt. Aktuell wichtig sind das Wasserabstellen am
+            03.10.2026 und der Grünschnittcontainer am 16. und 17.10.2026.
           </p>
-        </div>
-
-        <div class="card hero-image">
-          <img src="Bild.jpeg" alt="Hummel auf violetter Blüte" />
-          <div class="hero-caption">
-            <strong>Gemeinsam aktiv für unsere Anlage</strong>
-            <span>Alle wichtigen Termine übersichtlich auf einer Seite.</span>
-          </div>
         </div>
       </section>
 
       <section class="events">
-        <article class="card event-card" data-title="Arbeitseinsatz" data-date="Samstag, 04.07.2026" data-time="Beginn: 09:00 Uhr" data-image="Image 2026-03-18 at 11.50.12-4.jpeg">
-          <div class="event-image">
-            <img src="Image 2026-03-18 at 11.50.12-4.jpeg" alt="Arbeitseinsatz Juli" />
-          </div>
+        <article class="card event-card" data-title="WASSER ABSTELLEN" data-date="Samstag, 03.10.2026" data-time="ab 09:00 Uhr">
+          <div class="event-band"></div>
           <div class="event-content">
-            <span class="badge">Arbeitseinsatz</span>
-            <h2>Arbeitseinsatz</h2>
-            <div class="event-date">Samstag, 04.07.2026</div>
-            <div class="event-time">Beginn: 09:00 Uhr</div>
-            <p>Bitte den neuen Termin vormerken. Die vorherigen Arbeitseinsätze sind erledigt.</p>
+            <span class="badge">Wasser abstellen</span>
+            <h2>WASSER ABSTELLEN</h2>
+            <div class="event-row">
+              <div class="event-date">Samstag, 03.10.2026</div>
+              <div class="event-time">ab 09:00 Uhr</div>
+            </div>
+            <div class="highlight">Unentschuldigte Nichtteilnahme an den Terminen: 20,00 €</div>
+            <div class="highlight">Der Zugang zum Garten muss gewährleistet sein!</div>
+            <div class="highlight alert"><strong>ACHTUNG:</strong> Die Helfer treffen sich bereits gegen <strong>08:30 Uhr</strong> am Vereinshaus.</div>
             <div class="actions">
-              <a class="button" href="termine-arbeitseinsatz-04072026.ics">In Kalender eintragen</a>
+              <a class="button" href="termine-wasser-abstellen-20261003.ics">In Kalender eintragen</a>
               <span class="button button-secondary">Zum Vergrößern antippen</span>
             </div>
           </div>
         </article>
 
-        <article class="card event-card gold" data-title="Sommerfest" data-date="Samstag, 08.08.2026" data-time="Beginn: 15:00 Uhr" data-image="Image 2026-03-18 at 11.50.11-3.jpeg">
-          <div class="event-image">
-            <img src="Image 2026-03-18 at 11.50.11-3.jpeg" alt="Sommerfest" />
-          </div>
+        <article class="card event-card gold" data-title="Grünschnittcontainer" data-date="16.10.2026 bis 18.10.2026" data-time="siehe Zeiten">
+          <div class="event-band"></div>
           <div class="event-content">
-            <span class="badge gold">Sommerfest</span>
-            <h2>Sommerfest</h2>
-            <div class="event-date">Samstag, 08.08.2026</div>
-            <div class="event-time">Beginn: 15:00 Uhr</div>
-            <p>Bitte den Termin vormerken. Weitere Informationen zum Ablauf folgen später.</p>
+            <span class="badge gold">Grünschnittcontainer</span>
+            <h2>Grünschnittcontainer</h2>
+            <div class="schedule">
+              <div class="schedule-row">
+                <strong>Freitag, 16.10.2026</strong>
+                <span>10:00 Uhr bis 17:00 Uhr</span>
+              </div>
+              <div class="schedule-row">
+                <strong>Samstag, 17.10.2026</strong>
+                <span>09:00 Uhr bis 17:00 Uhr</span>
+              </div>
+              <div class="schedule-row cancelled">
+                <strong>Sonntag, 18.10.2026</strong>
+                <span>Entfällt</span>
+              </div>
+            </div>
             <div class="actions">
-              <a class="button" href="termine-sommerfest-20260808.ics">In Kalender eintragen</a>
+              <a class="button" href="termine-gruenschnittcontainer-20261016-17.ics">In Kalender eintragen</a>
               <span class="button button-secondary">Zum Vergrößern antippen</span>
             </div>
           </div>
         </article>
       </section>
-
-      <div class="note">
-        Neue Termine können später einfach als weiterer Terminblock ergänzt werden.
-      </div>
     </div>
   </main>
 
@@ -466,11 +475,12 @@
   <div class="modal" id="modal">
     <button class="close" type="button" id="closeModal" aria-label="Schließen">×</button>
     <div class="modal-box">
-      <img id="modalImage" src="" alt="" />
       <div class="modal-content">
         <h2 id="modalTitle"></h2>
-        <div class="event-date" id="modalDate"></div>
-        <div class="event-time" id="modalTime"></div>
+        <div class="event-row">
+          <div class="event-date" id="modalDate"></div>
+          <div class="event-time" id="modalTime"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -479,7 +489,6 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const modal = document.getElementById('modal');
-    const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
     const modalDate = document.getElementById('modalDate');
     const modalTime = document.getElementById('modalTime');
@@ -488,8 +497,6 @@
     document.querySelectorAll('.event-card').forEach(card => {
       card.addEventListener('click', (event) => {
         if (event.target.closest('a')) return;
-        modalImage.src = card.dataset.image;
-        modalImage.alt = card.dataset.title;
         modalTitle.textContent = card.dataset.title;
         modalDate.textContent = card.dataset.date;
         modalTime.textContent = card.dataset.time;
