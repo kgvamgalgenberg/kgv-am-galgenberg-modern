@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KGV Am Galgenberg Weimar e.V.//Termine//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:mitgliederversammlung-20270109@kgv-am-galgenberg-weimar.de
+DTSTAMP:20261113T123700Z
+DTSTART:20270109T100000
+SUMMARY:Mitgliederversammlung - KGV Am Galgenberg Weimar e.V.
+DESCRIPTION:Mitgliederversammlung 2027. Je Garten muss mindestens 1 Mitglied zur Erfüllung der Pflichtstunden teilnehmen. Themen: Allgemeines aus 2025 und 2026 / Neues 2027; Vorstellung neue Rahmenkleingartenordnung; Entlastung Vorstand.
+LOCATION:Vereinshaus KGV Am Galgenberg Weimar e.V.
+END:VEVENT
+END:VCALENDAR
